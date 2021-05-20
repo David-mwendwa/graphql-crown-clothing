@@ -47,7 +47,7 @@ client.query({
 }).then(res => console.log(res)); 
 
 ReactDOM.render(
-  <ApolloProvider>
+  <ApolloProvider client={client}>
     <Provider store={store}>
       <BrowserRouter>
         <PersistGate persistor={persistor}>
