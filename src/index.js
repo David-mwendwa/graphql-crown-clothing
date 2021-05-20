@@ -12,7 +12,7 @@ import { ApolloClient, gql } from 'apollo-boost';
 import { store, persistor } from './redux/store';
 
 import './index.css';
-import App from './App';
+import App from './App';     
 
 // Establish the connection to the backend
 const httpLink = createHttpLink({
