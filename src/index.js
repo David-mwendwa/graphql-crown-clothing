@@ -12,7 +12,8 @@ import { ApolloClient, gql } from 'apollo-boost';
 import { store, persistor } from './redux/store';
 
 import './index.css';
-import App from './App';     
+import App from './App';
+import { resolvers, typeDefs } from './graphql/resolvers';
 
 // Establish the connection to the backend
 const httpLink = createHttpLink({
@@ -25,7 +26,15 @@ const cache = new InMemoryCache();
 // Make the client
 const client =  new ApolloClient({    
   link: httpLink,
-  cache
+  cache,
+  typeDefs,
+  resolvers
+})
+
+client.writeData({
+  data: {
+    cartHidden: true
+  }
 })
 
 // Testing the query
